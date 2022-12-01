@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { user} from 'src/app/user';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,20 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Task';
-  user="";
-  pw="";
+  
+
+  user:user
+
+  constructor(){
+    this.user= {fname:'', lname:' ',gender:' ', country:''}
+
+  }
+
+  onsubmitButtonClick(userForm:any)
+  {
+
+    this.user=userForm.value;
+    console.log(userForm.value.firstname);
+  }
 
 }

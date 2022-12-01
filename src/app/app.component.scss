@@ -4,13 +4,16 @@ form{
     border-radius: 10px;
     box-sizing: border-box;
     width: 50%;
-    height: 80%;
+    height: 50%;
     padding: 80px 20px;
     margin: 8px 0px;
     text-align: center;
     background-color: white;
 justify-content: center;}
 
+h2{
+    margin-bottom: 1px;
+}
 .container {
     border-radius: 5px;
     padding: 200px;
@@ -34,7 +37,8 @@ input[type=text] {
 
 
 }
-input[type=submit]{
+// input[type=submit]
+button{
     width: 70%;
     padding-right: 20px;
     margin-left: 17px;
@@ -43,18 +47,33 @@ input[type=submit]{
     border:white;
     border-radius: 8px;
     color: white;
-    margin-top: 15px;
+    margin-top:20px;
 
 
 }
-input[type=submit]:hover{
+button:hover{
     background-color: rgba(0, 0, 3, 0.856);
 }
 img{
     margin-left: 8px;
+text-align: center;
+
 }
 .type{
     justify-content: center;
      width: 100%;
      margin-bottom: 10px;
+}
+
+label{
+
+    display: grid;
+}
+
+.gender{
+    display: inline-flex;
+    
+}
+input.ng-invalid.ng-touched{
+    border: 1px solid red;
 }

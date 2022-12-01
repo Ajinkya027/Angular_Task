@@ -1,15 +1,22 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { user } from 'src/app/user';
 
 @Component({
   selector: 'app-sample',
   templateUrl: './sample.component.html',
   styleUrls: ['./sample.component.scss']
 })
-export class SampleComponent {
+export class SampleComponent implements OnInit {
 
-  @Input() Username="";
+  @Input() user:user
          
-  @Input() password="";
+
+
+  constructor() {}
+
+  ngOnInit(): void {
+    
+  }
   
 
 }

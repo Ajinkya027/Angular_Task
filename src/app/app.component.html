@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
 
 <div class="container">
-<form action="/action_page.php">
+<form action="/action_page.php" #userForm="ngForm" (ngSubmit)="onsubmitButtonClick(userForm)">
   
 
   <img src="../assets/caritor.jpg">
@@ -11,21 +11,55 @@
 
  
   <div class="input-container">
-  <i class="fa fa-user icon" style="margin-right: 5px;"></i>
-  <input type="text" name="fname"  placeholder="Username" [(ngModel)]="user">
-  
-</div>
+      <i class="fa fa-user icon" style="margin-right: 5px;"></i>
+      <input type="text" name="fname" placeholder="Username" autocomplete="off" ngModel required email #fname="ngModel">
+<div *ngIf="!fname?.valid && (fname?.dirty || fname?.touched)" class="error">
+      <div *ngIf="lname.errors?.['required']"><small style="color: red;">Username is required</small></div>
+<div *ngIf="lname.errors?.['lname']"><small style="color: rgb(255, 0, 0);">Invalid username address</small></div>
+      <!-- <small style="color: red;" *ngIf="!fname.valid&&fname.touched"> field is required</small> -->
+    </div>
+  </div>
  
 <div class="input-container">
   <i class="fas fa-lock" style="margin-right:5px;"></i>
-  <input type="text" name="lname" placeholder="Password" [(ngModel)]="pw">
-  
+  <input type="text" name="lname" placeholder="Password" ngModel required #lname="ngModel">
+  <br>
+  <small style="color: red;" *ngIf="!lname.valid&&lname.touched"> password is required</small>
 </div>
 
+
+<div class="gender">
+  <input type="radio" name="gender" value="Male" ngModel >Male 
+</div>
+
+<label class="gender">
+  <input type="radio" name="gender" value="Famale" ngModel>Female
+</label> 
+
+
+<label name="country"><small>Select Your Country</small>
+<select name="country" ngModel required>
+  <option name="Country">India</option>
+  <option name="Country">New-York</option>
+  <option name="Country">England</option>
+  <option name="Country">Brazil</option>
+  <option name="Country">Russia</option>
+  <option name="Country">Japan</option>
+  <option name="Country">Germany</option>
+  <option name="Country">Vietnam</option>
+</select>
+</label>
+
 <div class="input-container">
-  <input type="submit" value="Login">
+  <button [disabled]="!userForm.valid" type="submit" value="Login">Submit</button>
 </div>
+
 </form>
-<app-sample [Username]="user" [password]="pw"></app-sample>
+<div>
+  <app-sample [user]="user"></app-sample>
 </div>
+
+
+</div>
+
 
