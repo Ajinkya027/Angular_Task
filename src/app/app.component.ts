@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { user} from 'src/app/user';
 
 @Component({
@@ -7,16 +8,15 @@ import { user} from 'src/app/user';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Task';
+  title = "Task";
   
 
   user:user
 
   constructor(){
-    this.user= {fname:'', lname:' ',gender:' ', country:''}
-
+    this.user= {fname:" ", lname:" ",gender:"  ", country:" " ,education:" "}
+    
   }
-
   onsubmitButtonClick(userForm:any)
   {
 

@@ -3,5 +3,6 @@ export class user{
     lname:string;
     gender:string;
     country:string;
+    education:string;
 
 }   

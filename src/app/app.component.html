@@ -10,26 +10,25 @@
   <h2>Login</h2>
 
  
-  <div class="input-container">
-      <i class="fa fa-user icon" style="margin-right: 5px;"></i>
+<div class="input-container">
+      <i class="fa fa-user icon" style="margin-right: 1px;"></i>
       <input type="text" name="fname" placeholder="Username" autocomplete="off" ngModel required email #fname="ngModel">
 <div *ngIf="!fname?.valid && (fname?.dirty || fname?.touched)" class="error">
-      <div *ngIf="lname.errors?.['required']"><small style="color: red;">Username is required</small></div>
-<div *ngIf="lname.errors?.['lname']"><small style="color: rgb(255, 0, 0);">Invalid username address</small></div>
-      <!-- <small style="color: red;" *ngIf="!fname.valid&&fname.touched"> field is required</small> -->
+      <div *ngIf="lname.errors?.['required']"><small style="color: rgb(255, 104, 104);">Username is required</small></div>
+<div *ngIf="lname.errors?.['lname']"><small style="color: rgb(255, 117, 117);">Invalid username address</small></div>
     </div>
   </div>
  
 <div class="input-container">
-  <i class="fas fa-lock" style="margin-right:5px;"></i>
-  <input type="text" name="lname" placeholder="Password" ngModel required #lname="ngModel">
-  <br>
-  <small style="color: red;" *ngIf="!lname.valid&&lname.touched"> password is required</small>
+  <i class="fas fa-lock" style="margin-right:1px;"></i>
+  <input type="text"   name="lname" placeholder="Password" ngModel required #lname="ngModel">
+  <small style="color: rgb(252, 90, 90);"  *ngIf="!lname.valid&&lname.touched"> password is required</small>
 </div>
 
 
 <div class="gender">
   <input type="radio" name="gender" value="Male" ngModel >Male 
+  
 </div>
 
 <label class="gender">
@@ -37,29 +36,45 @@
 </label> 
 
 
-<label name="country"><small>Select Your Country</small>
-<select name="country" ngModel required>
-  <option name="Country">India</option>
-  <option name="Country">New-York</option>
-  <option name="Country">England</option>
-  <option name="Country">Brazil</option>
-  <option name="Country">Russia</option>
-  <option name="Country">Japan</option>
-  <option name="Country">Germany</option>
-  <option name="Country">Vietnam</option>
+<label value="country" class="fas fa-globe"><small>Select Your Country</small>
+<select name="country" ngModel required #country="ngModel">
+  <option value="India">India</option>
+  <option value="New-York">New-York</option>
+  <option value="England">England</option>
+  <option value="Brazil">Brazil</option>
+  <option value="Russia">Russia</option>
+  <option value="Japan">Japan</option>
+  <option value="Germany">Germany</option>
+  <option value="Vietnam">Vietnam</option>
 </select>
+<small style="color: rgb(250, 111, 111);" *ngIf="!country.valid&&country.touched"> Please select Country</small>
 </label>
 
+
+<label name="education" class="fas fa-graduation-cap"><small>Education</small>
+  <select name="education" ngModel required #education="ngModel">
+    <option value="MBA">MBA</option>
+    <option value="MCA">MCA</option>
+    <option value="BCA">BCA</option>
+    <option value="BSC">BSC</option>
+    <option value="B.COM">B.COM</option>
+    <option value="M.COM">M.COM</option>
+  </select>
+  <small style="color: rgb(255, 118, 118);" *ngIf="!education.valid&&education.touched"> Please select Education</small>
+
+  </label>
+  
+
 <div class="input-container">
-  <button [disabled]="!userForm.valid" type="submit" value="Login">Submit</button>
+
+  <button [disabled]="!userForm.valid" type="submit" value="Login">SUBMIT</button>
 </div>
 
+
 </form>
+</div>
+
 <div>
   <app-sample [user]="user"></app-sample>
 </div>
-
-
-</div>
-
 
